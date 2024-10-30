@@ -1,0 +1,31 @@
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.9
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+
+  redis:
+    image: redis:6.0
+    ports:
+      - "6379:6379"
+
+  llm:
+    build: infra/llm  # LLM 서버를 위한 Dockerfile이 위치한 디렉토리
+    env_file:
+      - infra/llm/.env
+    ports:
+      - "5000:5000"
+
+  mariadb:
+    build: infra/mariadb
+    container_name: cartalk-mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:

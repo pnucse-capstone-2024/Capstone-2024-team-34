@@ -1,0 +1,49 @@
+spring:
+  config:
+    import: classpath:application-config.yml
+  datasource:
+    url: ${DB_URL}
+    username: ${USER_NAME}
+    password: ${PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+      default_batch_fetch_size: 100
+    open-in-view: false
+    defer-datasource-initialization: true
+  sql:
+    init:
+      encoding: utf-8
+  jackson:
+    time-zone: Asia/Seoul
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging:
+  level:
+    root: info
+    com:
+      web: debug
+
+file:
+  path: /path/to/your/file
+
+mail:
+  host: smtp.gmail.com
+  port: 587
+  username: ${GMAIL_USER_EMAIL}
+  password: ${GMAIL_APP_PASSWORD}
+llm:
+  end-point: ${LLM_END_POINT}
+car_talk:
+  secret: ${TOKEN_SECRET}

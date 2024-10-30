@@ -1,0 +1,7 @@
+GMAIL_USER_EMAIL: cartalk2024.10@gmail.com
+GMAIL_APP_PASSWORD: kqjvuhvzeaouxlos
+TOKEN_SECRET: your_token_secret
+LLM_END_POINT: http://localhost:5000
+DB_URL: jdbc:mariadb://localhost:3306/cartalk?useUnicode=true&characterEncoding=utf8mb4
+USER_NAME: root
+PASSWORD: parksh5513!
